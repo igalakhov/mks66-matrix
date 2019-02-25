@@ -1,3 +1,3 @@
 # mks66-matrix
 
-![final image](https://i.imgur.com/ugXBglK.jpg)
+![final image](https://i.imgur.com/pkLTdsB.png)
