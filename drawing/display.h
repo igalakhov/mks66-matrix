@@ -1,5 +1,5 @@
 #include <iostream>
-#include "settings.h"
+#include "../settings.h"
 
 #ifndef WORK_01_LINE_DISPLAY_H
 #define WORK_01_LINE_DISPLAY_H

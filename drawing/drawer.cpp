@@ -4,6 +4,20 @@
 
 #include "drawer.h"
 
+// draw edges
+void Drawer::draw_edges(EdgeMatrix * m){
+    int max = m->get_size();
+    float_mat * start = m->get_start();
+
+    while(max > 0){
+        draw_line((int) start[0], (int) start[1], (int) start[4], (int) start[5]);
+
+        start += 8;
+
+        max -= 2;
+    }
+}
+
 // draws a rectangle with diagonals
 void Drawer::draw_rectangle(int x, int y, int w, int h) {
     draw_line(x, y, x + w, y);
@@ -24,12 +38,6 @@ void Drawer::draw_line(int x1, int y1, int x2, int y2) {
     }
 
     // draws a line from (x1, x2) to (y1, y2)
-
-    // make sure values are correct
-    assert(x1 >= 0 and x1 < IMAGE_WIDTH);
-    assert(x2 >= 0 and x2 < IMAGE_WIDTH);
-    assert(y1 >= 0 and y1 < IMAGE_HEIGHT);
-    assert(y2 >= 0 and y2 < IMAGE_HEIGHT);
 
     // get constants
     int dy = y2 - y1;
@@ -109,9 +117,8 @@ void Drawer::draw_line(int x1, int y1, int x2, int y2) {
 }
 
 void Drawer::set(int x, int y){
-    assert(x < IMAGE_WIDTH and y < IMAGE_HEIGHT);
-
-    Display::set(x, y, &cur_color);
+    if(x < IMAGE_WIDTH and y < IMAGE_HEIGHT) // only set if value is valid
+        Display::set(x, y, &cur_color);
 }
 
 void Drawer::change_color(unsigned char r, unsigned char g, unsigned char b){
@@ -122,7 +129,7 @@ void Drawer::change_color(unsigned char r, unsigned char g, unsigned char b){
 
 Drawer::Drawer() {
     cur_color.r = 0;
-    cur_color.g = 0;
-    cur_color.b = 0;
+    cur_color.g = 255;
+    cur_color.b = 102;
 }
 

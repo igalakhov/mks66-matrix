@@ -2,6 +2,7 @@
 // Created by Ivan Galakhov on 2019-02-06.
 //
 #include "display.h"
+#include "../matrix/edge_matrix.h"
 
 #ifndef WORK_01_LINE_DRAWER_H
 #define WORK_01_LINE_DRAWER_H
@@ -12,6 +13,7 @@ public:
     Drawer(); // constructor
 
     // drawing
+    void draw_edges(EdgeMatrix * );
     void draw_line(int, int, int, int);
     void draw_rectangle(int, int, int, int);
     void change_color(unsigned char, unsigned char, unsigned char);

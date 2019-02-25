@@ -1,15 +1,24 @@
-all: main.o drawer.o display.o
-	g++ -o main.out main.o drawer.o display.o
+all: main.o drawer.o display.o edge_matrix.o transformation_matrix.o
+	g++ -std=c++11 -o main.out main.o drawer.o display.o edge_matrix.o transformation_matrix.o
 	./main.out
 
 main.o: main.cpp
-	g++ -c main.cpp
+	g++ -std=c++11 -c main.cpp
 
-draw.o: drawer.cpp drawer.h
-	g++ -c drawer.cpp
+drawer.o: drawing/drawer.cpp drawing/drawer.h
+	g++ -std=c++11 -c drawing/drawer.cpp
 
-display.o: display.cpp display.h
-	g++ -c display.cpp
+display.o: drawing/display.cpp drawing/display.h
+	g++ -std=c++11 -c drawing/display.cpp
+
+edge_matrix.o: matrix/edge_matrix.cpp matrix/edge_matrix.h matrix/transformation_matrix.h
+	g++ -std=c++11 -c matrix/edge_matrix.cpp
+
+transformation_matrix.o: matrix/transformation_matrix.cpp matrix/transformation_matrix.h matrix/edge_matrix.h
+	g++ -std=c++11 -c matrix/transformation_matrix.cpp
+
+convert:
+	convert
 
 clean:
 	touch fakefile.o
