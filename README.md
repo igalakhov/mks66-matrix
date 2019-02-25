@@ -1,1 +1,1 @@
-# mks66-line
+# mks66-matrix
