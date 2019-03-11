@@ -5,8 +5,9 @@
 #ifndef WORK_01_LINE_TRANSFORMATION_MATRIX_H
 #define WORK_01_LINE_TRANSFORMATION_MATRIX_H
 
-#include "edge_matrix.h"
+#include <cassert>
 
+#include "edge_matrix.h"
 
 #define float_mat float
 
